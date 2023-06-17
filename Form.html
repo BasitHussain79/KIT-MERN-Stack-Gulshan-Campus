@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Form</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, eveniet.
+      </p>
+    </div>
+    <form>
+      <div>
+        <label for="fname">First Name</label> <br />
+        <input
+          type="text"
+          placeholder="Jhon"
+          id="fname"
+          required="required"
+          minlength="5"
+          maxlength="5"
+        />
+      </div>
+      <br />
+      <div>
+        <label for="lname">Last Name</label> <br />
+        <input type="text" value="Xyz" id="lname" />
+      </div>
+      <div>
+        <label for="mobile">Phone</label> <br />
+        <input
+          type="number"
+          placeholder="111 111 111"
+          id="mobile"
+          min="10"
+          max="50"
+        />
+      </div>
+      <div>
+        <label for="password">Password</label> <br />
+        <input type="password" id="password" />
+      </div>
+      <div>
+        <label for="email">Email</label> <br />
+        <input type="email" placeholder="abc@test.com" id="email" />
+      </div>
+      <div>
+        <label for="dob">Date of birth</label> <br />
+        <input type="date" id="dob" />
+      </div>
+      <input type="submit" value="Login" />
+      <button type="submit">Submit</button>
+      <input type="reset" value="Reset" />
+      <button type="reset">Reset</button>
+    </form>
+  </body>
+</html>

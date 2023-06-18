@@ -4,57 +4,124 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      #header {
+        background-color: red;
+      }
+      .header {
+        background-color: blue;
+      }
+    </style>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div>
-      <h1>Form</h1>
+    <div id="header" class="header">
+      <h1>HTML <span>Form</span></h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, eveniet.
       </p>
     </div>
-    <form>
+    <form action="">
       <div>
-        <label for="fname">First Name</label> <br />
+        <label for="name">Full Name</label>
         <input
           type="text"
+          id="name"
+          name="fname"
           placeholder="Jhon"
-          id="fname"
+          minlength="2"
+          maxlength="8"
           required="required"
-          minlength="5"
-          maxlength="5"
-        />
-      </div>
-      <br />
-      <div>
-        <label for="lname">Last Name</label> <br />
-        <input type="text" value="Xyz" id="lname" />
-      </div>
-      <div>
-        <label for="mobile">Phone</label> <br />
-        <input
-          type="number"
-          placeholder="111 111 111"
-          id="mobile"
-          min="10"
-          max="50"
         />
       </div>
       <div>
-        <label for="password">Password</label> <br />
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="jhon@gmail.com" />
+      </div>
+      <div>
+        <label for="password">Password</label>
         <input type="password" id="password" />
       </div>
       <div>
-        <label for="email">Email</label> <br />
-        <input type="email" placeholder="abc@test.com" id="email" />
+        <label for="mobile">Mobile #</label>
+        <input type="number" min="" max="" />
       </div>
       <div>
-        <label for="dob">Date of birth</label> <br />
-        <input type="date" id="dob" />
+        <label for="colorPicker">Color Picker</label>
+        <input type="color" id="colorPicker" />
       </div>
-      <input type="submit" value="Login" />
-      <button type="submit">Submit</button>
-      <input type="reset" value="Reset" />
-      <button type="reset">Reset</button>
+      <div>
+        <label for="dob">Date of Birth</label>
+        <input type="date" min="2020-09-15" max="2022-12-01" id="dob" />
+      </div>
+
+      <div>
+        <label for="textArea">Text Area</label> <br />
+        <textarea rows="4" cols="10"></textarea>
+      </div>
+
+      <div>
+        <label for="gender">Gender</label>
+        <input type="radio" name="gender" id="male" value="Male" />
+        <label for="male">Male</label>
+        <input type="radio" name="gender" id="female" value="Female" />
+        <label for="female">Female</label>
+        <input type="radio" name="gender" id="other" value="Other" />
+        <label for="other">Other</label>
+      </div>
+
+      <div>
+        <label for="checkbox">Packages</label>
+        <input
+          type="checkbox"
+          name="packages"
+          id="platinium"
+          disabled="disabled"
+          value="Platinium"
+        />
+        <label for="platinium">Platinium</label>
+        <input type="checkbox" name="packages" id="gold" value="Gold" />
+        <label for="gold">Gold</label>
+        <input
+          type="checkbox"
+          checked="checked"
+          name="packages"
+          id="diamond"
+          value="Diamond"
+        />
+        <label for="diamond">Diamond</label>
+      </div>
+
+      <div>
+        <label for="dropDown">Dropdown</label>
+        <select id="dropDown">
+          <option>Option 01</option>
+          <option>Option 02</option>
+          <option selected="selected">Option 03</option>
+          <option disabled="disabled">Option 04</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="uploadFile">File</label>
+        <input type="file" id="uploadFile" accept=".pdf" />
+      </div>
     </form>
+
+    <fieldset>
+      <legend>Contact details</legend>
+      <label
+        >Email:<br />
+        <input type="text" name="email" /></label
+      ><br />
+      <label
+        >Mobile:<br />
+        <input type="text" name="mobile" /></label
+      ><br />
+      <label
+        >Telephone:<br />
+        <input type="text" name="telephone"
+      /></label>
+    </fieldset>
   </body>
 </html>

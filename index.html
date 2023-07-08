@@ -3,16 +3,101 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style/main.css" />
     <title>Document</title>
   </head>
   <body>
-    <h1>Check Rem value</h1>
-    <div class="box">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione iusto
-        aliquid laboriosam consequuntur unde id exercitationem ut cupiditate,
-      </p>
-    </div>
+    <header id="header">
+      <nav id="navbar">
+        <div class="logo">
+          <span><i class="fa-solid fa-book"></i> HTML</span>CSS
+        </div>
+        <ul class="links">
+          <li class="list"><a href="#">Home</a></li>
+          <li class="list"><a href="#">What</a></li>
+          <li class="list"><a href="#">Who</a></li>
+          <li class="list"><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="container">
+        <h1 class="title">The Sky Is The Limit</h1>
+        <p class="text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati,
+          sunt!
+        </p>
+        <button class="btn btn-primary">Read More</button> &nbsp;
+        <button class="btn btn-secondary">Checkout 50% Off</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="what" class="container">
+        <h3 class="heading"><span>What</span> We Do</h3>
+        <div class="what-container">
+          <!-- box-1 -->
+          <div class="what-box">
+            <div class="icon"><i class="fa-solid fa-building-columns"></i></div>
+            <h3>Banking Investment</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat,
+              a.
+            </p>
+          </div>
+          <!-- box-2 -->
+          <div class="what-box">
+            <div class="icon"><i class="fa-solid fa-building-columns"></i></div>
+            <h3>Banking Investment</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat,
+              a.
+            </p>
+          </div>
+          <!-- box-3 -->
+          <div class="what-box">
+            <div class="icon"><i class="fa-solid fa-building-columns"></i></div>
+            <h3>Banking Investment</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat,
+              a.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="who">
+        <div class="img-sec"></div>
+        <div class="who-content">
+          <h3 class="heading">Who We Are</h3>
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit,
+            delectus iure tenetur dignissimos dolores consequatur omnis
+            accusantium. Ab maiores obcaecati necessitatibus adipisci nesciunt,
+            corporis distinctio, vitae temporibus, animi reprehenderit rerum.
+          </p>
+
+          <h4 class="team-heading">Our Team</h4>
+          <ul>
+            <li>Mark Smith: CEO</li>
+            <li>Mark Smith: CEO</li>
+            <li>Mark Smith: CEO</li>
+            <li>Mark Smith: CEO</li>
+            <li>Mark Smith: CEO</li>
+          </ul>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

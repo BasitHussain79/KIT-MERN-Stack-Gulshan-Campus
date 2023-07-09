@@ -57,13 +57,14 @@ img {
 }
 
 .btn-primary:hover {
+  cursor: pointer;
   background-color: #73b429;
 }
 
 .btn-secondary {
   background-color: transparent;
-  border: 0.2rem solid var(--color-primary);
   color: var(--color-primary);
+  box-shadow: inset 0px 0px 0px 0.2rem var(--color-primary);
 }
 
 .btn-secondary:hover {
@@ -137,13 +138,15 @@ img {
   height: 100vh;
   width: 100vw;
   color: var(--color-light);
-  position: relative;
-  z-index: 1111;
+  overflow: auto;
 }
 
 #header .container {
-  margin-top: 20rem;
   text-align: center;
+}
+
+#header .container .header-content {
+  margin-top: 35rem;
 }
 
 #header .title {
@@ -239,4 +242,103 @@ img {
   font-size: 1.8rem;
   line-height: 5rem;
   border-bottom: 0.1rem dotted rgb(113, 113, 113);
+}
+
+#our-clients {
+  margin: 5rem auto;
+}
+
+#our-clients .clients {
+  width: 100%;
+  margin: 2rem 8rem;
+}
+
+#our-clients .clients img {
+  width: 15%;
+  margin: 2.5rem;
+}
+
+#our-clients .clients img:last-child {
+  margin: 0;
+}
+
+#contact-us {
+  margin-top: 4rem auto;
+  overflow: auto;
+  background-color: var(--color-primary);
+}
+
+#contact-us .contact-form {
+  width: 50%;
+  float: left;
+  padding: 5rem;
+}
+
+#contact-us .contact-form .heading {
+  margin-bottom: 1rem;
+}
+
+#contact-us .contact-form .heading,
+#contact-us .contact-form .text {
+  text-align: left;
+  color: var(--color-light);
+}
+
+#contact-us .contact-form .form {
+  margin: 3rem 0 1rem;
+}
+
+#contact-us .contact-form .form .form-control {
+  margin-bottom: 2rem;
+}
+
+#contact-us .contact-form .form .form-control label {
+  font-size: 2.2rem;
+  text-transform: capitalize;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-light);
+}
+
+#contact-us .contact-form .form .form-control input,
+#contact-us .contact-form .form .form-control textarea {
+  border: none;
+  border-radius: 2.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  padding: 1.4rem 1.5rem;
+  font-size: 1.4rem;
+  width: 100%;
+}
+
+#contact-us .contact-form .form .form-control textarea {
+  height: 10rem;
+  border-radius: 1.5rem;
+}
+
+#contact-us .contact-form .form .contact-btn {
+  background-color: var(--color-secondary);
+  color: var(--color-light);
+  width: 100%;
+  text-align: center;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 2.5rem;
+  border: none;
+}
+
+#contact-us .contact-map {
+  float: left;
+  width: 50%;
+}
+
+#contact-us .contact-map iframe {
+  width: 100%;
+  height: 74rem;
+}
+
+#footer {
+  background-color: var(--color-secondary);
+  text-align: center;
+  font-size: 1.8rem;
+  padding: 2rem 1rem;
+  color: var(--color-light);
 }

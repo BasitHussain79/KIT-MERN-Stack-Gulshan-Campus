@@ -20,7 +20,7 @@
     <title>Document</title>
   </head>
   <body>
-    <header id="header">
+    <header>
       <nav id="navbar">
         <div class="logo">
           <span><i class="fa-solid fa-book"></i> HTML</span>CSS
@@ -32,14 +32,18 @@
           <li class="list"><a href="#">Contact</a></li>
         </ul>
       </nav>
-      <div class="container">
-        <h1 class="title">The Sky Is The Limit</h1>
-        <p class="text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati,
-          sunt!
-        </p>
-        <button class="btn btn-primary">Read More</button> &nbsp;
-        <button class="btn btn-secondary">Checkout 50% Off</button>
+      <div id="header">
+        <div class="container">
+          <div class="header-content">
+            <h1 class="title">The Sky Is The Limit</h1>
+            <p class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Obcaecati, sunt!
+            </p>
+            <button class="btn btn-primary">Read More</button> &nbsp;
+            <button class="btn btn-secondary">Checkout 50% Off</button>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -98,6 +102,63 @@
           </ul>
         </div>
       </section>
+
+      <section id="our-clients">
+        <h3 class="heading"><span>Our</span> Clients</h3>
+        <div class="clients">
+          <img src="./assets/img/logo1.png" alt="logo01" />
+          <img src="./assets/img/logo2.png" alt="logo02" />
+          <img src="./assets/img/logo3.png" alt="logo03" />
+          <img src="./assets/img/logo4.png" alt="logo04" />
+          <img src="./assets/img/logo5.png" alt="logo05" />
+        </div>
+      </section>
+
+      <section id="contact-us">
+        <div class="contact-form">
+          <h3 class="heading">Contact Us</h3>
+          <p class="text">Please use the form below to contact us</p>
+
+          <form class="form">
+            <div class="form-control">
+              <label for="name">Name</label>
+              <input type="text" placeholder="Enter Name" id="name" />
+            </div>
+
+            <div class="form-control">
+              <label for="email">Email</label> <br />
+              <input type="text" placeholder="Enter email" id="email" />
+            </div>
+
+            <div class="form-control">
+              <label for="phone no">phone no</label> <br />
+              <input type="text" placeholder="Enter phone no" id="phone no" />
+            </div>
+
+            <div class="form-control">
+              <label for="msg">Message</label> <br />
+              <textarea id="msg" placeholder="Enter message"></textarea>
+            </div>
+
+            <div>
+              <button type="submit" class="btn contact-btn">Submit</button>
+            </div>
+          </form>
+        </div>
+        <div class="contact-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.281310321808!2d67.08726497610378!3d24.92248494277144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f343ffc8925%3A0xb45cd60183e51d7b!2sChildren&#39;s%20Hospital%20Karachi!5e0!3m2!1sen!2s!4v1688896851174!5m2!1sen!2s"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </section>
     </main>
+
+    <footer id="footer">
+      <p>Copyright &copy; 2023, KIT, All Rights Reserved</p>
+    </footer>
   </body>
 </html>

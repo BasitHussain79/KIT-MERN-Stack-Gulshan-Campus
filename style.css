@@ -4,70 +4,188 @@
   box-sizing: border-box;
 }
 
+:root {
+  --color-primary: #c69963;
+  --color-primary-dark: #b28451;
+  --color-secondary: rgb(16, 29, 44);
+  --color-grey-light-1: #f9f7f6;
+  --color-grey-light-2: #aaa;
+  --color-grey-dark-1: #54483a;
+  --color-grey-dark-2: #6d5d4b;
+  --font-primary: "Nunito", sans-serif;
+  --font-display: "Josefin Sans", sans-serif;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  height: auto;
+  font-family: var(--font-primary);
+}
+
 .container {
   display: grid;
-  grid-template-columns: repeat(3, 300px);
-  grid-template-rows: 300px auto;
-  height: 100vh;
-  background-color: lightcoral;
-  /* grid-template-columns: 40px 50px auto 50px 40px;
-  grid-template-rows: 25% 100px min-content;
+  grid-template-columns: 6rem 1fr repeat(6, minmax(20rem, 1fr)) 1fr;
+  grid-template-rows: 75vh min-content 40vw repeat(3, min-content);
   grid-template-areas:
-    "header header header header header"
-    "sec01 sec01 sec02 sec02 sec02"
-    "sec03 sec03 sec04 sec05 sec05";
-  column-gap: 20px;
-  row-gap: 10px; */
-  grid-gap: 10px;
-  /* justify-items: start;
-  justify-items: center;
-  justify-items: end;
-  justify-items: stretch;
-  align-items: start;
-  align-items: center;
-  align-items: end;
-  align-items: stretch; */
+    "nav header header header header header realtors realtors realtors"
+    "nav . services services services services services services ."
+    "nav goals goals goals goals story story story story"
+    "nav . home home home home home home ."
+    "nav gallery gallery gallery gallery gallery gallery gallery gallery"
+    "nav footer footer footer footer footer footer footer footer";
+}
+
+.nav {
+  grid-area: nav;
+  background-color: var(--color-primary);
+  padding-top: 1rem;
+}
+
+nav {
+  cursor: pointer;
+  width: 3.3rem;
+  height: 2.6rem;
+  position: relative;
+  top: 0;
+  left: 20%;
+}
+
+.nav nav .nav-icon {
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-grey-light-1);
+  position: relative;
+  top: 1rem;
+}
+
+.nav nav .nav-icon::before,
+.nav nav .nav-icon::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-grey-light-1);
+  top: -1rem;
+}
+
+.nav nav .nav-icon::after {
+  top: 1rem;
+}
+
+.header {
+  grid-area: header;
+  background: linear-gradient(rgba(16, 29, 44, 0.7), rgba(16, 29, 44, 0.8)),
+    url("./assets/img/hero.jpeg") no-repeat center center/cover;
+  display: grid;
+  grid-template-rows: minmax(5rem, 1fr) repeat(2, min-content) minmax(5rem, 1fr) repeat(
+      2,
+      min-content
+    );
+  padding: 2rem 5rem;
+  grid-gap: 2rem;
+}
+
+.header .logo {
+  justify-self: center;
+  align-self: start;
+}
+
+.header .logo img {
+  height: 3rem;
+}
+
+.header h3 {
+  font-family: var(--font-primary);
+  font-size: 1.6rem;
+  color: var(--color-primary-dark);
+  font-weight: 700;
+}
+
+.header h1 {
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  color: var(--color-grey-light-1);
+  font-weight: 700;
+}
+
+.header button {
+  align-self: start;
+  justify-self: start;
+  padding: 1.2rem 1.4rem;
+  border: none;
+}
+
+.header .seenon {
+  color: var(--color-grey-light-1);
+  font-size: 1.5rem;
+  font-family: var(--font-display);
+  justify-self: center;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.header .seenon::before,
+.header .seenon::after {
+  content: "";
+  position: absolute;
+  background-color: var(--color-grey-light-1);
+  width: 480px;
+  height: 0.2rem;
+  left: -500px;
+  top: 6px;
+}
+
+.header .seenon::after {
+  left: 70px;
+  width: 478px;
+}
+
+.header .logos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   justify-content: space-between;
-  align-content: space-evenly;
 }
 
-.item {
-  padding: 1rem;
+.header .logos img {
+  height: 3.5rem;
 }
 
-.item:nth-child(even) {
+.realtors {
+  grid-area: realtors;
   background-color: darkblue;
 }
 
-.item:nth-child(odd) {
-  background-color: darkgoldenrod;
+.services {
+  grid-area: services;
+  background-color: aquamarine;
 }
 
-.item:nth-child(2) {
-  align-self: end;
-  justify-self: end;
+.goals {
+  grid-area: goals;
+  background-color: darkcyan;
 }
 
-/* .item:first-child {
-  grid-area: header;
+.story {
+  grid-area: story;
+  background-color: darkblue;
 }
 
-.item:nth-child(2) {
-  grid-area: sec01;
+.homes {
+  grid-area: home;
+  background-color: lawngreen;
 }
 
-.item:nth-child(3) {
-  grid-area: sec02;
+.gallery {
+  grid-area: gallery;
+  background-color: darkgrey;
 }
 
-.item:nth-child(4) {
-  grid-area: sec03;
+.footer {
+  grid-area: footer;
+  background-color: darkred;
 }
-
-.item:nth-child(5) {
-  grid-area: sec04;
-}
-
-.item:nth-child(6) {
-  grid-area: sec05;
-} */

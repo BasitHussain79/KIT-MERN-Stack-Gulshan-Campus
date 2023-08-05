@@ -27,9 +27,16 @@ body {
   font-family: var(--font-primary);
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  align-items: center;
+  grid-gap: 2rem;
+}
+
 .container {
   display: grid;
-  grid-template-columns: 6rem 1fr repeat(6, minmax(20rem, 1fr)) 1fr;
+  grid-template-columns: 6rem 1fr repeat(6, minmax(min-content, 20rem)) 1fr;
   grid-template-rows: 75vh min-content 40vw repeat(3, min-content);
   grid-template-areas:
     "nav header header header header header realtors realtors realtors"
@@ -126,10 +133,9 @@ nav {
   font-family: var(--font-display);
   justify-self: center;
   position: relative;
-  margin-bottom: 1rem;
 }
 
-.header .seenon::before,
+/* .header .seenon::before,
 .header .seenon::after {
   content: "";
   position: absolute;
@@ -138,6 +144,12 @@ nav {
   height: 0.2rem;
   left: -500px;
   top: 6px;
+} */
+
+.line {
+  background-color: var(--color-grey-light-1);
+  width: 100%;
+  height: 0.2rem;
 }
 
 .header .seenon::after {
@@ -147,8 +159,9 @@ nav {
 
 .header .logos {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
   justify-content: space-between;
+  grid-gap: 2rem;
 }
 
 .header .logos img {
@@ -157,17 +170,100 @@ nav {
 
 .realtors {
   grid-area: realtors;
-  background-color: darkblue;
+  background-color: var(--color-secondary);
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.realtors h3 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-grey-light-1);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.realtors .realtor-items .realtor-item {
+  display: grid;
+  column-gap: 2rem;
+  grid-template-columns: min-content max-content;
+  justify-items: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.realtors .realtor-items .realtor-item img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+}
+
+.realtors .realtor-items .realtor-item h5 {
+  color: var(--color-grey-light-1);
+  font-size: 1.5rem;
+}
+
+.realtors .realtor-items .realtor-item p {
+  color: var(--color-grey-light-1);
+  font-size: 1.2rem;
 }
 
 .services {
   grid-area: services;
-  background-color: aquamarine;
+  background-color: #fff;
+  padding: 15rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+  grid-gap: 5rem;
+  row-gap: 8rem;
+}
+
+.services .service {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  gap: 2rem;
+  justify-items: start;
+}
+
+.services .service .serviceIcon {
+  fill: var(--color-primary);
+  height: 6rem;
+  width: 6rem;
+}
+
+.services .service h3 {
+  font-size: 2rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+.services .service p {
+  font-size: 1.8rem;
+  font-weight: 400;
 }
 
 .goals {
   grid-area: goals;
-  background-color: darkcyan;
+  background: linear-gradient(rgba(198, 153, 99, 0.5), rgba(198, 153, 99, 0.8)),
+    url("./assets/img/back.jpg") no-repeat center center/cover;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  position: relative;
+}
+
+.goals img:first-child {
+  width: 70%;
+  height: 50%;
+}
+
+.goals img:nth-child(2) {
+  width: 60%;
+  height: 40%;
+  position: absolute;
+  top: 50%;
+  right: -15%;
 }
 
 .story {
@@ -177,15 +273,190 @@ nav {
 
 .homes {
   grid-area: home;
-  background-color: lawngreen;
+  background-color: #fff;
+  padding: 15rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+  grid-gap: 5rem;
+  row-gap: 8rem;
+}
+
+.homes .home {
+  display: grid;
+  grid-template-rows: 25rem repeat(3, min-content);
+}
+
+.homes .home .home-img {
+  position: relative;
+}
+
+.homes .home img {
+  width: 100%;
+  height: 100%;
+}
+
+.homes .home i {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: var(--color-grey-light-1);
+  font-size: 1.6rem;
+  transition: all 0.4s ease-in;
+  cursor: pointer;
+}
+
+.homes .home i:hover {
+  color: red;
+}
+
+.homes .home .homeHeartIcon {
+}
+
+.homes .home h4 {
+  font-size: 1.8rem;
+  font-family: var(--font-display);
+  background-color: var(--color-secondary);
+  width: 25rem;
+  padding: 1.5rem;
+  margin: 0 auto;
+  margin-top: -2.5rem;
+  font-weight: 400;
+  text-align: center;
+  color: var(--color-grey-light-1);
+  z-index: 111;
+}
+
+.homes .home .home-description {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+  margin: 2rem 0;
+}
+
+.homes .home .home-description p {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.homes .home button {
+  border: none;
+  background-color: var(--color-primary);
+  color: var(--color-grey-light-1);
+  padding: 1.8rem 1rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  font-family: var(--font-display);
 }
 
 .gallery {
   grid-area: gallery;
-  background-color: darkgrey;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(7, 6vw);
+  grid-gap: 2rem;
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+}
+
+.gallery img:first-child {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+}
+
+.gallery img:nth-child(2) {
+  grid-column: 3 / span 3;
+  grid-row: 1 / span 3;
+}
+
+.gallery img:nth-child(3) {
+  grid-column: 6 / span 1;
+  grid-row: 1 / span 2;
+}
+
+.gallery img:nth-child(4) {
+  grid-column: 7 / span 2;
+  grid-row: 1 / span 2;
+}
+
+.gallery img:nth-child(5) {
+  grid-column: 1 / span 2;
+  grid-row: 3 / span 3;
+}
+
+.gallery img:nth-child(6) {
+  grid-column: 3 / span 2;
+  grid-row: 4 / span 2;
+}
+
+.gallery img:nth-child(7) {
+  grid-column: 5 / span 1;
+  grid-row: 4 / span 1;
+}
+
+.gallery img:nth-child(8) {
+  grid-column: 6 / span 2;
+  grid-row: 3 / span 2;
+}
+
+.gallery img:nth-child(9) {
+  grid-column: 8 / span 1;
+  grid-row: 3 / span 3;
+}
+
+.gallery img:nth-child(10) {
+  grid-column: 1 / span 1;
+  grid-row: 6 / span 2;
+}
+
+.gallery img:nth-child(11) {
+  grid-column: 2 / span 2;
+  grid-row: 6 / span 2;
+}
+
+.gallery img:nth-child(12) {
+  grid-column: 4 / span 1;
+  grid-row: 6 / span 2;
+}
+
+.gallery img:nth-child(13) {
+  grid-column: 5 / span 3;
+  grid-row: 5 / span 3;
+}
+
+.gallery img:last-child {
+  grid-column: 8 / span 1;
+  grid-row: 6 / span 2;
 }
 
 .footer {
   grid-area: footer;
   background-color: darkred;
+}
+
+/* 1100
+900
+768
+500
+300 */
+
+@media only screen and (max-width: 768px) {
+  .container {
+    grid-template-rows: 75vh min-content min-content 40vw repeat(3, min-content);
+    grid-template-areas:
+      "nav header header header header header header header header"
+      "nav realtors realtors realtors realtors realtors realtors realtors realtors"
+      "nav . services services services services services services ."
+      "nav goals goals goals goals story story story story"
+      "nav . home home home home home home ."
+      "nav gallery gallery gallery gallery gallery gallery gallery gallery"
+      "nav footer footer footer footer footer footer footer footer";
+  }
+
+  .realtors {
+    padding: 8rem 2rem;
+  }
 }

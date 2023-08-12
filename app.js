@@ -1,19 +1,24 @@
-const firstName = "Basit";
-const lastName = "Hussain";
-const name = "Hello World!";
-const fullName = firstName + " " + lastName;
-const fullNameWithTemplateString = `
-<h1>Hello World</h1>
-<p>lorem 101232.3</p>
-${fullName}
-<button>Click Me</button>
-`;
+let num1 = 2;
+let num2 = 3;
 
-const firstNameWithUpperCase = firstName.toUpperCase();
-const firstNameWithLowerCase = firstName.toLowerCase();
-console.log(lastName.indexOf("s"));
-console.log(lastName.lastIndexOf("y"));
-// slice vs splice vs substr
-console.log(lastName.slice(2));
-console.log(lastName.substring(2, 4));
-console.log(name.replaceAll("l", "a"));
+// Airthamatinc Operators
+// console.log("add", num1 + num2);
+// console.log("sub", num1 - num2);
+// console.log("mul", num1 * num2);
+// console.log("div", num1 / num2);
+// console.log("power", num1 ** 2);
+// console.log("Modulus", num2 % num1);
+
+// Increment or Decrement
+// console.log(num1++); // post increment = 2 + 1 = 2
+// console.log(++num1); // pre increment = 1 + 3 = 4
+// console.log(num1--); // post decrement = 4 - 1 = 4
+// console.log(--num1); // post decrement = -1 + 3 = -2
+
+// Assignment Operators
+// num2 += 4; // 3 + 4 = 7
+// num2 -= 4; // 3 - 4 = -1
+// num2 *= 4; // 3 * 4 = 12
+// num2 /= 5; // 3 * 5 = 2.4
+
+console.log(2 - "23");

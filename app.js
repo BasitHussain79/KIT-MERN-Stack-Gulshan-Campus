@@ -1,54 +1,45 @@
-// let num1 = 2;
-// let num2 = 3;
+// let i = 2;
+// for (; i >= 0; ) {
+//   console.log(i);
+//   i--;
+// }
 
-// Airthamatinc Operators
-// console.log("add", num1 + num2);
-// console.log("sub", num1 - num2);
-// console.log("mul", num1 * num2);
-// console.log("div", num1 / num2);
-// console.log("power", num1 ** 2);
-// console.log("Modulus", num2 % num1);
+// let i = 0;
+// while (i <= 2) {
+//   console.log(i);
+//   i++;
+// }
 
-// Increment or Decrement
-// console.log(num1++); // post increment = 2 + 1 = 2
-// console.log(++num1); // pre increment = 1 + 3 = 4
-// console.log(num1--); // post decrement = 4 - 1 = 4
-// console.log(--num1); // post decrement = -1 + 3 = -2
+// let i = 4;
 
-// Assignment Operators
-// num2 += 4; // 3 + 4 = 7
-// num2 -= 4; // 3 - 4 = -1
-// num2 *= 4; // 3 * 4 = 12
-// num2 /= 5; // 3 * 5 = 2.4
+// do {
+//   console.log(i);
+//   i++;
+// } while (i <= 1);
 
-// console.log(2 - "23");
+const a = 20;
 
-// Arrays --> To store multiple values in a single varaible
-// 0 -> 1
-// 1 -> 2
-// 2 -> 3
-// 3 -> 4
-// 4 -> 5
+if (a) {
+  console.log("statement");
+} else if (!a) {
+  console.log("else if");
+}
 
-const arr = [1, true, "Hello", null]; // --> 110101010
+let x = "B";
 
-// arr[5] = "World!";
-// arr.push("abc", 123, true);
-// arr.push(null);
+switch (x) {
+  case "A":
+    console.log("A");
+    break;
+  case "B":
+    console.log("B");
+  // break;
+  case "C":
+    console.log("C");
+  // break;
+  default:
+    console.log("Invalid case");
+}
 
-// arr.pop();
-// arr.pop();
-
-// arr.unshift(123);
-// arr.shift();
-
-const arr2 = [1, 2, 3, 4];
-
-// console.log(arr.join(" - "));
-const arr3 = arr.concat(arr2, [true, false, true]);
-arr3.indexOf("Hello");
-const arr4 = arr3.slice(1, 4);
-
-const fruits = ["Banana", "Orange", "Apple", "Mango"];
-fruits.splice(2, 0, "Abc", "Abc2");
-console.log(fruits);
+let arr = [0, 1, 2];
+console.log(arr === arr);

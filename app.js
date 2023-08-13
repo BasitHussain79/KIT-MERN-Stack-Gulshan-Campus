@@ -66,5 +66,5 @@ let objectArr = Object.entries(obj);
 console.log(keys, values, objectArr);
 
 for (let y in obj) {
-  console.log(y, typeof y);
+  console.log(`${y}: ${obj[y]}`);
 }

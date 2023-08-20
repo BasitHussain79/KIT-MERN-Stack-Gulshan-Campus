@@ -1,70 +1,78 @@
-// let i = 2;
-// for (; i >= 0; ) {
-//   console.log(i);
-//   i--;
-// }
+// Primitive
+// 1. String ""
+// 2. Number
+// 3. Boolean false
+// 4. null
+// 5. undefined
+// Non-Primitive / Composite
+// object
+// array
+// new Date()
+// functions
+// new Set
 
-// let i = 0;
-// while (i <= 2) {
-//   console.log(i);
-//   i++;
-// }
-
-// let i = 4;
-
-// do {
-//   console.log(i);
-//   i++;
-// } while (i <= 1);
-
-// const a = 20;
-
-// if (a) {
-//   console.log("statement");
-// } else if (!a) {
-//   console.log("else if");
-// }
-
-// let x = "B";
-
-// switch (x) {
-//   case "A":
-//     console.log("A");
-//     break;
-//   case "B":
-//     console.log("B");
-//   // break;
-//   case "C":
-//     console.log("C");
-//   // break;
-//   default:
-//     console.log("Invalid case");
-// }
-
-// let arr = [0, 1, 2];
-
-// for (let x of arr) {
-//   console.log(x);
-// }
+console.log(this);
 
 const obj = {
   firstName: "Basit",
   lastName: "Hussain",
-  courses: ["MERN", "AI", "Xyz"],
+  blogs: [
+    {
+      name: "Abc",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, inventore.",
+      likes: 10,
+    },
+    {
+      name: "Xyz",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, inventore.",
+      likes: 20,
+      author: "Khizer",
+    },
+    {
+      name: "",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, inventore.",
+      likes: 30,
+    },
+  ],
   address: null,
+  login() {
+    console.log("Login");
+    console.log("login", this);
+  },
+  printBlogs() {},
+  logout: function () {
+    console.log("Logout");
+    console.log("logout", this);
+  },
 };
 
-obj.email = "basit@email.com";
-obj.courses[2] = "Blockchaing";
-obj["address"] = "Xyz";
+// obj.login();
+// console.log(`${obj.firstName} ${obj.lastName}`);
+// obj.logout();
 
-// console.log(`${obj["firstName"]} ${obj["lastName"]}`, obj["courses"][2]);
+// ternary operator
+// condition ? statement : statement
 
-let keys = Object.keys(obj);
-let values = Object.values(obj);
-let objectArr = Object.entries(obj);
-console.log(keys, values, objectArr);
+// const address = obj.address ? obj.address : "Gulshan near Children Hospital";
+// const address = !obj.address && "Gulshan near Children Hospital";
+// const address = obj?.address ?? "Gulshan near Children Hospital";
+// const fullName = `${obj.firstName} ${obj.lastName}`;
+// console.log(fullName, address, obj);
 
-for (let y in obj) {
-  console.log(`${y}: ${obj[y]}`);
-}
+// "" 0 null undefined -> false values
+// if (!obj.address) {
+//   obj.address = "Abc, xyz, 123";
+// }
+
+// Math Object
+console.log(Math.PI);
+
+let num = 2.9;
+console.log(Math.round(num));
+console.log(Math.round(Math.random() * 100));
+console.log(Math.floor(num));
+console.log(Math.ceil(num));
+console.log(Math.trunc(num));

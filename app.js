@@ -1,78 +1,46 @@
-// Primitive
-// 1. String ""
-// 2. Number
-// 3. Boolean false
-// 4. null
-// 5. undefined
-// Non-Primitive / Composite
-// object
-// array
-// new Date()
-// functions
-// new Set
+const headingByClass = document.querySelector(".heading");
+const headingById = document.querySelector("#heading");
+const allHeading = document.querySelectorAll(".heading");
+const heading2 = document.querySelector("h2");
 
-console.log(this);
+const getElementsByClassName = document.getElementsByClassName("heading");
+const getElementById = document.getElementById("heading");
+const getElementsByTagName = document.getElementsByTagName("h1");
 
-const obj = {
-  firstName: "Basit",
-  lastName: "Hussain",
-  blogs: [
-    {
-      name: "Abc",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, inventore.",
-      likes: 10,
-    },
-    {
-      name: "Xyz",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, inventore.",
-      likes: 20,
-      author: "Khizer",
-    },
-    {
-      name: "",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, inventore.",
-      likes: 30,
-    },
-  ],
-  address: null,
-  login() {
-    console.log("Login");
-    console.log("login", this);
-  },
-  printBlogs() {},
-  logout: function () {
-    console.log("Logout");
-    console.log("logout", this);
-  },
-};
+const link = document.querySelector("a");
 
-// obj.login();
-// console.log(`${obj.firstName} ${obj.lastName}`);
-// obj.logout();
+// link.setAttribute(
+//   "href",
+//   "https://github1s.com/BasitHussain79/Bano_Qabil_React_Complete_Guide/blob/dev-01/client/src/components/features/Auth/Register.js#L1-L157"
+// );
 
-// ternary operator
-// condition ? statement : statement
+// link.setAttribute("target", "_blank");
 
-// const address = obj.address ? obj.address : "Gulshan near Children Hospital";
-// const address = !obj.address && "Gulshan near Children Hospital";
-// const address = obj?.address ?? "Gulshan near Children Hospital";
-// const fullName = `${obj.firstName} ${obj.lastName}`;
-// console.log(fullName, address, obj);
+// link.setAttribute(
+//   "style",
+//   "color: red; font-size: 22px; text-decoration: none"
+// );
 
-// "" 0 null undefined -> false values
-// if (!obj.address) {
-//   obj.address = "Abc, xyz, 123";
+// link.textContent = "GitHub Link";
+
+// console.log(headingByClass.getAttribute("class"));
+
+// headingByClass.innerHTML += " DOM Advance";
+
+// console.log(getElementsByClassName);
+
+// const arr = [1, 2, 3];
+
+// allHeading.forEach((d) => {
+
+// });
+
+// for (let i = 0; i < getElementByClassName.length; i++) {
+//   console.log(getElementByClassName[i]);
 // }
 
-// Math Object
-console.log(Math.PI);
+console.log(headingByClass.style);
 
-let num = 2.9;
-console.log(Math.round(num));
-console.log(Math.round(Math.random() * 100));
-console.log(Math.floor(num));
-console.log(Math.ceil(num));
-console.log(Math.trunc(num));
+headingByClass.style.fontSize = "20px";
+headingByClass.style.color = "coral";
+headingByClass.style.fontWeight = "700";

@@ -39,8 +39,18 @@ const link = document.querySelector("a");
 //   console.log(getElementByClassName[i]);
 // }
 
-console.log(headingByClass.style);
+// console.log(headingByClass.style);
 
 headingByClass.style.fontSize = "20px";
 headingByClass.style.color = "coral";
 headingByClass.style.fontWeight = "700";
+
+const parent = document.querySelector(".parent");
+const child = document.querySelector(".parentChild");
+
+console.log(parent.children);
+console.log(parent.previousElementSibling);
+console.log(parent.nextElementSibling);
+console.log(
+  child.previousElementSibling.nextElementSibling.parentElement.children
+);

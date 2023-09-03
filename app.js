@@ -1,56 +1,142 @@
-const headingByClass = document.querySelector(".heading");
-const headingById = document.querySelector("#heading");
-const allHeading = document.querySelectorAll(".heading");
-const heading2 = document.querySelector("h2");
+const blogList = document.querySelector(".blogs");
+const blogForm = document.querySelector(".add-blog");
 
-const getElementsByClassName = document.getElementsByClassName("heading");
-const getElementById = document.getElementById("heading");
-const getElementsByTagName = document.getElementsByTagName("h1");
+const blogArr = [
+  {
+    category: "Healthy Food",
+    title: "Exotic Tender Chia Bread with Lime & Honey",
+    date: new Date(),
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+  },
+  {
+    category: "Tech",
+    title: "Exotic Tender Chia Bread with Lime & Honey",
+    date: new Date(),
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+  },
+  {
+    category: "News",
+    title: "Exotic Tender Chia Bread with Lime & Honey",
+    date: new Date(),
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+  },
+];
 
-const link = document.querySelector("a");
+function blogStoreLocalStorage(blogListArr) {
+  localStorage.setItem("blogs", JSON.stringify(blogListArr));
+}
 
-// link.setAttribute(
-//   "href",
-//   "https://github1s.com/BasitHussain79/Bano_Qabil_React_Complete_Guide/blob/dev-01/client/src/components/features/Auth/Register.js#L1-L157"
-// );
+blogForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log(e, e.target["name"]);
+  const data = {
+    name: e.target["name"].value,
+    email: e.target["email"].value,
+    category: e.target["category"].value,
+    title: e.target["title"].value,
+    description: e.target["blog"].value,
+    date: new Date(),
+  };
+  console.log("submit", data);
+  blogArr.push(data);
 
-// link.setAttribute("target", "_blank");
+  blogStoreLocalStorage(blogArr);
 
-// link.setAttribute(
-//   "style",
-//   "color: red; font-size: 22px; text-decoration: none"
-// );
+  const blog = document.createElement("div");
+  blog.setAttribute("class", "blog center");
+  blog.style.flexDirection = "column";
+  // category
+  const catDiv = document.createElement("div");
+  catDiv.setAttribute("class", "center");
+  const catHeading = document.createElement("h4");
+  catHeading.innerText = data.category;
+  catDiv.append(catHeading);
 
-// link.textContent = "GitHub Link";
+  //title
+  const titleLink = document.createElement("a");
+  titleLink.setAttribute("href", "#");
+  const titleHeading = document.createElement("h3");
+  titleHeading.textContent = data.title;
+  titleLink.append(titleHeading);
 
-// console.log(headingByClass.getAttribute("class"));
+  // date
+  const datePara = document.createElement("p");
+  datePara.style.textAlign = "center";
+  datePara.innerHTML = `<em>by</em> Basit Hussain - ${new Date(
+    data.date
+  ).toLocaleDateString()}`;
 
-// headingByClass.innerHTML += " DOM Advance";
+  // blog desc
+  const blogDesc = document.createElement("p");
+  blogDesc.style.textAlign = "justify";
+  blogDesc.textContent = data.description;
 
-// console.log(getElementsByClassName);
+  // btn
+  const viewBtn = document.createElement("button");
+  viewBtn.setAttribute("type", "button");
+  viewBtn.setAttribute("class", "btn btn-outline-dark");
+  viewBtn.textContent = `View`;
 
-// const arr = [1, 2, 3];
+  const lineBreak = document.createElement("hr");
 
-// allHeading.forEach((d) => {
+  blog.append(catDiv);
+  blog.append(titleLink);
+  blog.append(datePara);
+  blog.append(blogDesc);
+  blog.append(viewBtn);
+  blog.append(lineBreak);
 
-// });
+  blogList.append(blog);
+});
 
-// for (let i = 0; i < getElementByClassName.length; i++) {
-//   console.log(getElementByClassName[i]);
-// }
+const arrList = JSON.parse(localStorage.getItem("blogs"));
+arrList.forEach((data) => {
+  const blog = document.createElement("div");
+  blog.setAttribute("class", "blog center");
+  blog.style.flexDirection = "column";
+  // category
+  const catDiv = document.createElement("div");
+  catDiv.setAttribute("class", "center");
+  const catHeading = document.createElement("h4");
+  catHeading.innerText = data.category;
+  catDiv.append(catHeading);
 
-// console.log(headingByClass.style);
+  //title
+  const titleLink = document.createElement("a");
+  titleLink.setAttribute("href", "#");
+  const titleHeading = document.createElement("h3");
+  titleHeading.textContent = data.title;
+  titleLink.append(titleHeading);
 
-headingByClass.style.fontSize = "20px";
-headingByClass.style.color = "coral";
-headingByClass.style.fontWeight = "700";
+  // date
+  const datePara = document.createElement("p");
+  datePara.style.textAlign = "center";
+  datePara.innerHTML = `<em>by</em> Basit Hussain - ${new Date(
+    data.date
+  ).toLocaleDateString()}`;
 
-const parent = document.querySelector(".parent");
-const child = document.querySelector(".parentChild");
+  // blog desc
+  const blogDesc = document.createElement("p");
+  blogDesc.style.textAlign = "justify";
+  blogDesc.textContent = data.description;
 
-console.log(parent.children);
-console.log(parent.previousElementSibling);
-console.log(parent.nextElementSibling);
-console.log(
-  child.previousElementSibling.nextElementSibling.parentElement.children
-);
+  // btn
+  const viewBtn = document.createElement("button");
+  viewBtn.setAttribute("type", "button");
+  viewBtn.setAttribute("class", "btn btn-outline-dark");
+  viewBtn.textContent = `View`;
+
+  const lineBreak = document.createElement("hr");
+
+  blog.append(catDiv);
+  blog.append(titleLink);
+  blog.append(datePara);
+  blog.append(blogDesc);
+  blog.append(viewBtn);
+  blog.append(lineBreak);
+
+  blogList.append(blog);
+});

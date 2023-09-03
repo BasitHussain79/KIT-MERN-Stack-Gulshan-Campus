@@ -1,37 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Blog App - KIT</title>
   </head>
   <body>
-    <h1>DOM Basics</h1>
-    <h1 class="heading">DOM Basics</h1>
-    <h1 class="heading">DOM Basics</h1>
-    <h1 class="heading">DOM Basics</h1>
-    <h1 class="heading">DOM Basics</h1>
+    <nav id="top-navbar" class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <div class="news">
+          <strong>LATEST POSTS:</strong> A Taste of Blackberry from Nature’s
+          Perfection
+        </div>
+        <div class="social-icons">
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-youtube"></i>
+        </div>
+      </div>
+    </nav>
 
-    <div class="parent">
-      <h1>Hello World!</h1>
-      <p class="parentChild">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta, totam.
-      </p>
-      <button>Click Me</button>
-
-      <div class="sec">
-        <h1>Hello World!</h1>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta,
-          totam.
-        </p>
-        <button>Click Me</button>
+    <div class="logo">
+      <div class="container">
+        <a href="/index.html"> <span>Bloging</span> App - KIT </a>
       </div>
     </div>
 
-    <a href="#"></a>
+    <nav id="main-navbar" class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
 
-    <h2></h2>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <header>
+      <!-- <button style="padding: 2rem" class="header-btn">Show</button>
+      <ul class="hello">
+        <li class="lists">Hello 1</li>
+        <li class="lists">Hello 2</li>
+        <li class="lists">Hello 3</li>
+      </ul> -->
+    </header>
+
+    <section id="blog-form">
+      <div class="container">
+        <h1 class="mb-4">Add Blog</h1>
+        <form class="add-blog">
+          <div class="mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              placeholder="Basit Hussain"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="basit@example.com"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="category" class="form-label">Blog Category</label>
+            <input
+              type="text"
+              class="form-control"
+              id="category"
+              name="category"
+              placeholder="Health"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              name="title"
+              placeholder="Awesome Blog"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="blog" class="form-label">Blog</label>
+            <textarea
+              class="form-control"
+              id="blog"
+              rows="3"
+              name="blog"
+              placeholder="Wite your blogs"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-success">Add Blog</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="blog-list">
+      <div class="container blogs">
+        <h1>LATEST Blogs</h1>
+        <!-- <button class="btnCheck">adsadsd</button> -->
+        <!-- <div class="blog center" style="flex-direction: column">
+          <div class="center">
+            <h4>Healthy Food</h4>
+          </div>
+          <a href="#"><h3>Exotic Tender Chia Bread with Lime & Honey</h3></a>
+          <p class="date"><em>by</em> Basit Hussain - Jan 12, 2020</p>
+          <p class="blog">
+            More off this less hello salamander lied porpoise much over tightly
+            circa horse taped so innocuously outside crud mightily rigorous
+            negative one inside gorilla and drew humbly shot tortoise inside
+            opaquely. Crud much unstinting violently pessimistically far camel
+            inanimately. If you find yourself smitten with someone you’ve only
+            just met, you’ll question whether you should give the feeling so
+            much weight – and risk ending up like Michael.
+          </p>
+          <button type="button" class="btn btn-outline-dark">View</button>
+        </div>
+        <hr /> -->
+      </div>
+    </section>
+
     <script src="./app.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

@@ -38,6 +38,12 @@ a {
   align-items: center;
 }
 
+.small-container {
+  width: 100%;
+  max-width: 50rem;
+  margin: 10rem auto;
+}
+
 #top-navbar {
   background-color: var(--color-primary) !important;
   color: var(--color-secondary) !important;

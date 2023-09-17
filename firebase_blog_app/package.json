@@ -6,8 +6,16 @@
   "scripts": {
     "dev": "webpack --mode development"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "html",
+    "css",
+    "js",
+    "firebase"
+  ],
+  "author": {
+    "name": "Basit",
+    "email": "basit@gmail.com"
+  },
   "license": "ISC",
   "dependencies": {
     "firebase": "^10.4.0"

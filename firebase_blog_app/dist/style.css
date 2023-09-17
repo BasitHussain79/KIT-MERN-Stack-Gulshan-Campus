@@ -38,6 +38,17 @@ a {
   align-items: center;
 }
 
+.dark-color {
+  background-color: var(--color-secondary);
+  color: #fff;
+  transition: all 0.2s ease-in;
+}
+
+.dark-color:hover {
+  background-color: var(--color-primary-dark);
+  color: #fff;
+}
+
 .small-container {
   width: 100%;
   max-width: 50rem;

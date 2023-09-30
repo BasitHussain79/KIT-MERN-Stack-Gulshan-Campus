@@ -1,8 +1,8 @@
 import React from 'react';
 import './style.css';
 
-const DefaultLayout = (props) => {
-  return <div className='container'>{props.children}</div>;
+const DefaultLayout = ({ children }) => {
+  return <div className='container'>{children}</div>;
 };
 
 export default DefaultLayout;

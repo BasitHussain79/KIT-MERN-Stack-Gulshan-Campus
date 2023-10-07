@@ -1,19 +1,20 @@
 import React from 'react';
-import Expense from './expense';
-import './style.css';
+import Expense from './Expense';
 
-const ExpenseList = (props) => {
+const ExpenseList = ({ expenses, getEditData, deleteExpense }) => {
   return (
-    <div>
-      {props.expenseList.length === 0 && <h3>No Expense Found!</h3>}
-      <ul className='lists'>
-        {props.expenseList &&
-          props.expenseList.length > 0 &&
-          props.expenseList.map((data) => (
-            <Expense key={data.title} expense={data} />
-          ))}
-      </ul>
-    </div>
+    <ul>
+      {expenses &&
+        expenses.length > 0 &&
+        expenses.map((expense) => (
+          <Expense
+            key={expense.id}
+            expense={expense}
+            getEditData={getEditData}
+            deleteExpense={deleteExpense}
+          />
+        ))}
+    </ul>
   );
 };
 

@@ -1,0 +1,56 @@
+.lists {
+  list-style: none;
+  background-color: lightgrey;
+  border-radius: 0.5rem;
+  box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.2);
+  padding: 14px 20px;
+  margin-top: 3rem;
+}
+
+.list {
+  background-color: lightcoral;
+  padding: 12px 15px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.date {
+  background-color: lightseagreen;
+  text-align: center;
+  width: 100px;
+  height: min-content;
+  border-radius: 12px;
+}
+
+.date .day {
+  font-size: 3.2rem;
+}
+
+.date .month {
+  font-size: 1.8rem;
+}
+
+.date .year {
+  font-size: 1.6rem;
+}
+
+.title {
+  flex: 1;
+  font-size: 1.6rem;
+}
+
+.price {
+  background-color: purple;
+  color: #fff;
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  border-radius: 12px;
+}

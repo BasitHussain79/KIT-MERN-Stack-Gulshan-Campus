@@ -1,37 +1,56 @@
 import React, { useState } from 'react';
-import ExpenseFrom from './components/features/ExpenseFrom';
-import DefaultLayout from './components/layout/DefaultLayout';
+import Layout from './components/common/Layout';
+import ExpenseForm from './components/features/ExpenseFrom';
 import ExpenseList from './components/features/ExpenseList';
-import './App.css';
 
-const expenses = [
-  {
-    title: 'Expense 01',
-    price: 233,
-    date: '2001-01-22',
-  },
-  {
-    title: 'Expense 02',
-    price: 233,
-    date: '2001-01-22',
-  },
-  {
-    title: 'Expense 03',
-    price: 233,
-    date: '2001-01-22',
-  },
-];
 const App = () => {
-  const [expenseLists, setExpenseLists] = useState(expenses);
+  const [expenseLists, setExpenseLists] = useState([]);
+  const [expenseData, setExpenseData] = useState(null);
 
-  const addExpenseListHandler = (newExpense) => {
-    setExpenseLists((prevState) => [newExpense, ...prevState]);
+  const addExpenseListHandler = (data) => {
+    // setExpenseLists([data, ...expenseLists]);
+    setExpenseLists((prevState) => [data, ...prevState]);
+  };
+
+  const updatedExpenseHandler = (data) => {
+    console.log(data);
+    const updateArr = expenseLists.map((expense) => {
+      if (expense.id === data.id) {
+        return {
+          id: data.id,
+          title: data.title,
+          price: data.price,
+          date: data.date,
+        };
+      }
+      return expense;
+    });
+    setExpenseLists(updateArr);
+    setExpenseData(null);
+  };
+
+  const getEditDataHandler = (data) => {
+    setExpenseData(data);
+  };
+
+  const deleteExpenseHandler = (id) => {
+    console.log(id);
+    const filterArr = expenseLists.filter((data) => +data.id !== +id);
+    setExpenseLists(filterArr);
   };
   return (
-    <DefaultLayout>
-      <ExpenseFrom onExpenseAdd={addExpenseListHandler} />
-      <ExpenseList expenseList={expenseLists} />
-    </DefaultLayout>
+    <Layout>
+      <ExpenseForm
+        expenseData={expenseData}
+        addExpenseListHandler={addExpenseListHandler}
+        updatedExpenseHandler={updatedExpenseHandler}
+      />
+      <ExpenseList
+        expenses={expenseLists}
+        getEditData={getEditDataHandler}
+        deleteExpense={deleteExpenseHandler}
+      />
+    </Layout>
   );
 };
 

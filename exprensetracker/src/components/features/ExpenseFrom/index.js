@@ -1,64 +1,74 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const ExpenseFrom = ({ onExpenseAdd }) => {
-  // const [expenseTitle, setExpenseTitle] = useState('');
-  // const [expensePrice, setExpensePrice] = useState('');
-  // const [expenseDate, setExpenseDate] = useState('');
-
+const ExpenseForm = ({
+  expenseData: editExpenseData,
+  addExpenseListHandler,
+  updatedExpenseHandler,
+}) => {
   const [expenseData, setExpenseData] = useState({
     title: '',
     price: '',
     date: '',
   });
 
+  useEffect(() => {
+    // console.log('effect run');
+    setExpenseData({
+      title: editExpenseData?.title ?? '',
+      price: editExpenseData?.price ?? '',
+      date: editExpenseData?.date ?? '',
+    });
+  }, [editExpenseData]);
+
   const onChangeHandler = (e) => {
-    // setExpenseTitle(e.target.value);
-    console.log(e.target.name, e.target.value);
+    // setExpenseData({ ...expenseData, [e.target.name]: e.target.value });
     setExpenseData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
 
-  const onSubmitHandler = (e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
-    console.log(expenseData);
-    onExpenseAdd(expenseData);
-    // console.log({
-    //   expenseTitle,
-    //   expensePrice,
-    //   expenseDate,
-    // });
-  };
 
+    editExpenseData !== null
+      ? updatedExpenseHandler({ id: editExpenseData?.id, ...expenseData })
+      : addExpenseListHandler({
+          id: Math.floor(Math.random() * 100),
+          ...expenseData,
+        });
+
+    setExpenseData({
+      title: '',
+      price: '',
+      date: '',
+    });
+  };
   return (
-    <form onSubmit={onSubmitHandler}>
-      <p>{expenseData.title}</p>
+    <form onSubmit={submitHandler}>
+      <h1>Expense From</h1>
       <div>
-        <label htmlFor='expenseTitle'>Title</label> <br />
+        <label htmlFor='title'>Title</label> <br />
         <input
           type='text'
-          id='expenseTitle'
           name='title'
           value={expenseData.title}
           onChange={onChangeHandler}
         />
       </div>
       <div>
-        <label htmlFor='expensePrice'>Price</label> <br />
+        <label htmlFor='price'>Price</label> <br />
         <input
           type='number'
-          id='expensePrice'
           name='price'
           value={expenseData.price}
           onChange={onChangeHandler}
         />
       </div>
       <div>
-        <label htmlFor='expenseDate'>Date</label> <br />
+        <label htmlFor='date'>Date</label> <br />
         <input
           type='date'
-          id='expenseDate'
           name='date'
           value={expenseData.date}
           onChange={onChangeHandler}
@@ -66,10 +76,12 @@ const ExpenseFrom = ({ onExpenseAdd }) => {
       </div>
 
       <div>
-        <button type='submit'>Submit</button>
+        <button type='submit'>
+          {editExpenseData !== null ? 'Update' : 'Submit'}
+        </button>
       </div>
     </form>
   );
 };
 
-export default ExpenseFrom;
+export default ExpenseForm;

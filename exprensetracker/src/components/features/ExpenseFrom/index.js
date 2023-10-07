@@ -1,4 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import style from './style.module.css';
+import { Form, Input } from './style';
+
+const inputStyle = {
+  padding: '10px',
+  borderRadius: '10px',
+  backgroundColor: 'transparent',
+  border: '1px solid #333',
+};
 
 const ExpenseForm = ({
   expenseData: editExpenseData,
@@ -45,33 +54,40 @@ const ExpenseForm = ({
     });
   };
   return (
-    <form onSubmit={submitHandler}>
+    <Form onSubmit={submitHandler} className={style.form}>
       <h1>Expense From</h1>
       <div>
         <label htmlFor='title'>Title</label> <br />
-        <input
+        <Input
           type='text'
           name='title'
           value={expenseData.title}
           onChange={onChangeHandler}
+          validation={expenseData.title.length !== 0 ? 'none' : '4px solid red'}
+          // style={{
+          //   ...inputStyle,
+          //   borderColor: expenseData.title.length === 0 ? 'red' : '#333',
+          // }}
         />
       </div>
       <div>
         <label htmlFor='price'>Price</label> <br />
-        <input
+        <Input
           type='number'
           name='price'
           value={expenseData.price}
           onChange={onChangeHandler}
+          style={inputStyle}
         />
       </div>
       <div>
         <label htmlFor='date'>Date</label> <br />
-        <input
+        <Input
           type='date'
           name='date'
           value={expenseData.date}
           onChange={onChangeHandler}
+          style={inputStyle}
         />
       </div>
 
@@ -80,7 +96,7 @@ const ExpenseForm = ({
           {editExpenseData !== null ? 'Update' : 'Submit'}
         </button>
       </div>
-    </form>
+    </Form>
   );
 };
 

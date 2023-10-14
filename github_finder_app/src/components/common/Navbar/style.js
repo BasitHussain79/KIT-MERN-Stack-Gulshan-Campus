@@ -5,9 +5,17 @@ const style = {
     alignItems: 'center',
   },
 
+  flexCenter: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
   icon: {
     fontSize: '30px',
   },
+
+  logoText: { fontSize: '18px', fontWeight: 600 },
 
   flexStart: {
     display: 'flex',

@@ -3,3 +3,5 @@ Notes
 firebase_blog_app/node_modules
 node_modules
 expensetracker/node_modules
+github_finder-app/node_modules
+github_finder-app/.env.local

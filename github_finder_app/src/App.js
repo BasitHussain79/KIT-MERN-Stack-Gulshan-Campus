@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import { CssBaseline } from '@mui/material';
 import { Route, Routes } from 'react-router-dom';
 import { Home, About } from './pages';
+import './App.css';
 
 const App = () => {
   return (

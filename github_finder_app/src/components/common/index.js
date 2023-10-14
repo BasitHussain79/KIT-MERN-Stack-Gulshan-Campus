@@ -1,3 +1,4 @@
 import Navbar from './Navbar';
+import Spinner from './Spinner';
 
-export { Navbar };
+export { Navbar, Spinner };

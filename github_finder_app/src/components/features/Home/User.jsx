@@ -1,7 +1,17 @@
 import { Box, Button, Grid, Typography } from '@mui/material';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const User = ({ user }) => {
+  const navigate = useNavigate();
+
+  const profileHandler = () => {
+    navigate(`/profile/${user.login}`, {
+      state: {
+        user,
+      },
+    });
+  };
   return (
     <Grid item xl={3} lg={3} md={4} sm={6} xs={12}>
       <Box
@@ -42,7 +52,12 @@ const User = ({ user }) => {
           {user.login}
         </Typography>
 
-        <Button type='button' variant='contained' sx={{ mt: 2 }}>
+        <Button
+          type='button'
+          variant='contained'
+          sx={{ mt: 2 }}
+          onClick={profileHandler}
+        >
           Profile
         </Button>
       </Box>

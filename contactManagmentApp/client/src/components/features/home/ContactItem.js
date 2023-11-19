@@ -6,7 +6,7 @@ import ContactContext from './../../../context/contact/contactContext';
 const ContactItem = ({ id, name, email, phone, relation }) => {
   const contactContext = useContext(ContactContext);
 
-  const { currentContact } = contactContext;
+  const { currentContact, deleteContact } = contactContext;
 
   const editHandler = () => {
     currentContact({
@@ -16,6 +16,10 @@ const ContactItem = ({ id, name, email, phone, relation }) => {
       phone,
       relation,
     });
+  };
+
+  const deleteHandler = () => {
+    deleteContact(id);
   };
 
   return (
@@ -39,7 +43,9 @@ const ContactItem = ({ id, name, email, phone, relation }) => {
         <Button variant='primary' className='me-2' onClick={editHandler}>
           Edit
         </Button>
-        <Button variant='danger'>Delete</Button>
+        <Button variant='danger' onClick={deleteHandler}>
+          Delete
+        </Button>
       </Card.Body>
     </Card>
   );

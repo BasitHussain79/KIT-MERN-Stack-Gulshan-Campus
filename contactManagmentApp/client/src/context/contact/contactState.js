@@ -1,7 +1,14 @@
 import React, { useId, useReducer } from 'react';
 import ContactContext from './contactContext';
 import reducerMethod from './contactReducer';
-import { ADD_CONTACT, CURRENT_CONTACT, UPDATE_CONTACT } from '../type';
+import {
+  ADD_CONTACT,
+  CLEAR_CURRENT_CONTACT,
+  CURRENT_CONTACT,
+  DELETE_CONTACT,
+  SEARCH_CONTACT,
+  UPDATE_CONTACT,
+} from '../type';
 
 const ContactState = ({ children }) => {
   const id = useId();
@@ -30,6 +37,7 @@ const ContactState = ({ children }) => {
       },
     ],
     currentContact: null,
+    filteredContacts: [],
   };
 
   const [state, dispatch] = useReducer(reducerMethod, initialState);
@@ -53,7 +61,14 @@ const ContactState = ({ children }) => {
     });
   };
 
-  // current contact
+  // clear current contact
+  const clearCurrentContactHandler = () => {
+    dispatch({
+      type: CLEAR_CURRENT_CONTACT,
+    });
+  };
+
+  // update contact
   const updateContactHandler = (data) => {
     dispatch({
       type: UPDATE_CONTACT,
@@ -61,14 +76,34 @@ const ContactState = ({ children }) => {
     });
   };
 
+  // delete contact
+  const deleteContactHandler = (id) => {
+    dispatch({
+      type: DELETE_CONTACT,
+      payload: id,
+    });
+  };
+
+  // filter contact
+  const searchContactsHandler = (text) => {
+    dispatch({
+      type: SEARCH_CONTACT,
+      payload: text,
+    });
+  };
+
   return (
     <ContactContext.Provider
       value={{
         contacts: state.contacts,
-        addContact: addContactHandler,
-        currentContact: currentContactHandler,
         currentContactData: state.currentContact,
+        filteredContacts: state.filteredContacts,
+        addContact: addContactHandler,
         updateContact: updateContactHandler,
+        currentContact: currentContactHandler,
+        clearCurrentContact: clearCurrentContactHandler,
+        deleteContact: deleteContactHandler,
+        searchContacts: searchContactsHandler,
       }}
     >
       {children}

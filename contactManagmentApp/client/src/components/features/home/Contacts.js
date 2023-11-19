@@ -4,21 +4,31 @@ import ContactItem from './ContactItem';
 
 const Contacts = () => {
   const contactContext = useContext(ContactContext);
-  const { contacts } = contactContext;
-  console.log(contacts);
+  const { contacts, filteredContacts } = contactContext;
 
   return (
     <>
-      {contacts.map((data) => (
-        <ContactItem
-          key={data.id}
-          id={data.id}
-          name={data.name}
-          email={data.email}
-          phone={data.phone}
-          relation={data.relation}
-        />
-      ))}
+      {filteredContacts && filteredContacts.length > 0
+        ? filteredContacts.map((data) => (
+            <ContactItem
+              key={data.id}
+              id={data.id}
+              name={data.name}
+              email={data.email}
+              phone={data.phone}
+              relation={data.relation}
+            />
+          ))
+        : contacts.map((data) => (
+            <ContactItem
+              key={data.id}
+              id={data.id}
+              name={data.name}
+              email={data.email}
+              phone={data.phone}
+              relation={data.relation}
+            />
+          ))}
     </>
   );
 };

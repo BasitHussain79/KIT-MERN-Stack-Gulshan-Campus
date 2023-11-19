@@ -13,9 +13,22 @@ const TopNavbar = () => {
             <Navbar.Brand>Contact Management App</Navbar.Brand>
           </Link>
         </div>
-        <Nav>
-          <Link to='/about'>About</Link>
-        </Nav>
+        <div
+          style={{
+            display: 'flex',
+            gap: '16px',
+          }}
+        >
+          <Nav>
+            <Link to='/register'>Register</Link>
+          </Nav>
+          <Nav>
+            <Link to='/login'>Login</Link>
+          </Nav>
+          <Nav>
+            <Link to='/about'>About</Link>
+          </Nav>
+        </div>
       </Container>
     </Navbar>
   );

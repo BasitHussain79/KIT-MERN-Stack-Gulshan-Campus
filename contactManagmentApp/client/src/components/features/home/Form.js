@@ -6,8 +6,8 @@ import ContactContext from './../../../context/contact/contactContext';
 const ContactForm = () => {
   const contactContext = useContext(ContactContext);
 
-  const { addContact, currentContactData, updateContact } = contactContext;
-  console.log('curretn', currentContactData);
+  const { addContact, currentContactData, clearCurrentContact, updateContact } =
+    contactContext;
 
   const [contact, setContact] = useState({
     name: '',
@@ -38,6 +38,8 @@ const ContactForm = () => {
     currentContactData !== null
       ? updateContact({ id: currentContactData.id, ...contact })
       : addContact(contact);
+
+    clearCurrentContact();
 
     setContact({
       name: '',

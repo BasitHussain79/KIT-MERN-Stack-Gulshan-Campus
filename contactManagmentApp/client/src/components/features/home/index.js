@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Layout from '../../ui/Layout';
 import ContactForm from './Form';
 import Contacts from './Contacts';
+import Search from '../../common/Search';
 
 const HomeDefault = () => {
   return (
@@ -13,6 +14,7 @@ const HomeDefault = () => {
           <ContactForm />
         </Col>
         <Col>
+          <Search />
           <Contacts />
         </Col>
       </Row>

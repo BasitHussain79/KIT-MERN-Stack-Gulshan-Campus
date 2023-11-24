@@ -1,7 +1,7 @@
 import React, { createRef, useId, useReducer } from 'react';
 import AlertContext from './alertContext';
 import alertReducer from './alertReducer';
-import { CLEART_ALERT, SET_ALERT } from '../type';
+import { CLEAR_ALERT, SET_ALERT } from '../type';
 
 const AlertState = ({ children }) => {
   const alertId = useId();
@@ -22,7 +22,7 @@ const AlertState = ({ children }) => {
 
     setTimeout(() => {
       dispatch({
-        type: CLEART_ALERT,
+        type: CLEAR_ALERT,
         payload: alertId + msg,
       });
     }, timeout);

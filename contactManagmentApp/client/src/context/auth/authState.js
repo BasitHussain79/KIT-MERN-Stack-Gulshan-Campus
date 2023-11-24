@@ -1,12 +1,18 @@
-import React, { createRef, useId, useReducer } from 'react';
-import axios from 'axios';
-import reducerMethod from './authReducer';
-import AuthContext from './authContext';
+import axios from "axios";
+import React, { useReducer } from "react";
+import setAuthToken from "../../utils/setAuthToken";
+import {
+  AUTH_FAIL,
+  AUTH_SUCCESS,
+  REGISTER_FAIL,
+  REGISTER_SUCCESS,
+} from "../type";
+import AuthContext from "./authContext";
+import reducerMethod from "./authReducer";
 
 const AuthState = ({ children }) => {
-  const alertId = useId();
   const initialState = {
-    token: localStorage.getItem('token'),
+    token: localStorage.getItem("token"),
     isAuthenticated: false,
     isLoading: true,
     user: null,
@@ -15,17 +21,32 @@ const AuthState = ({ children }) => {
 
   const [state, dispatch] = useReducer(reducerMethod, initialState);
 
+  const loadUser = async () => {
+    if (localStorage.token) {
+      setAuthToken(localStorage.token);
+    }
+    try {
+      const res = await axios.get("/api/auth");
+      console.log(res);
+      dispatch({ type: AUTH_SUCCESS, payload: res.data });
+    } catch (err) {
+      console.log(err);
+      dispatch({ type: AUTH_FAIL });
+    }
+  };
+
   const registerUserHandler = async (data) => {
     try {
       const config = {
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       };
-      const res = await axios.post('/api/users', data, config);
-      console.log(res);
+      const res = await axios.post("/api/users", data, config);
+      dispatch({ type: REGISTER_SUCCESS, payload: res.data });
+      if (localStorage.token) loadUser();
     } catch (err) {
-      console.log(err.response.data.msg);
+      dispatch({ type: REGISTER_FAIL, payload: err.response.data.msg });
     }
   };
 
@@ -38,6 +59,7 @@ const AuthState = ({ children }) => {
         user: state.user,
         error: state.error,
         registerUserHandler,
+        loadUser,
       }}
     >
       {children}

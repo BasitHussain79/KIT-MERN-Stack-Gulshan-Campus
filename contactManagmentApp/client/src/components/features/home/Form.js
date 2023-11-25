@@ -2,12 +2,15 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import React, { useContext, useEffect, useState } from 'react';
 import ContactContext from './../../../context/contact/contactContext';
+import AlertContext from './../../../context/alert/alertContext';
 
 const ContactForm = () => {
   const contactContext = useContext(ContactContext);
+  const alertContext = useContext(AlertContext);
 
   const { addContact, currentContactData, clearCurrentContact, updateContact } =
     contactContext;
+  const { alertHandler } = alertContext;
 
   const [contact, setContact] = useState({
     name: '',
@@ -35,12 +38,15 @@ const ContactForm = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    currentContactData !== null
-      ? updateContact({ id: currentContactData.id, ...contact })
-      : addContact(contact);
+    if (!contact.name || !contact.email || !contact.phone) {
+      alertHandler('Please enter all the required fields', 'danger');
+    } else {
+      currentContactData !== null
+        ? updateContact({ id: currentContactData.id, ...contact })
+        : addContact(contact);
 
-    clearCurrentContact();
-
+      clearCurrentContact();
+    }
     setContact({
       name: '',
       email: '',
@@ -64,7 +70,6 @@ const ContactForm = () => {
         <Form.Control
           type='text'
           placeholder='Enter name'
-          required
           name='name'
           value={contact.name}
           onChange={onChangeHandler}
@@ -76,7 +81,6 @@ const ContactForm = () => {
         <Form.Control
           type='email'
           placeholder='Enter email'
-          required
           name='email'
           value={contact.email}
           onChange={onChangeHandler}
@@ -88,7 +92,6 @@ const ContactForm = () => {
         <Form.Control
           type='number'
           placeholder='Enter phone no.'
-          required
           name='phone'
           value={contact.phone}
           onChange={onChangeHandler}

@@ -25,6 +25,7 @@ const BasicAlert = () => {
                   position: 'absolute',
                   bottom: '20px',
                   right: '2%',
+                  zIndex: '111',
                 }}
               >
                 <div>{alert.msg}</div>

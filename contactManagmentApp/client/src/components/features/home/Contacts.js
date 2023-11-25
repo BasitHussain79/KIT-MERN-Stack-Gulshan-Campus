@@ -21,8 +21,8 @@ const Contacts = () => {
           ))
         : contacts.map((data) => (
             <ContactItem
-              key={data.id}
-              id={data.id}
+              key={data._id}
+              id={data._id}
               name={data.name}
               email={data.email}
               phone={data.phone}

@@ -6,9 +6,12 @@ import {
   CLEAR_CURRENT_CONTACT,
   CURRENT_CONTACT,
   DELETE_CONTACT,
+  GET_CONTACTS,
   SEARCH_CONTACT,
   UPDATE_CONTACT,
 } from '../type';
+import axios from 'axios';
+import setAuthToken from '../../utils/setAuthToken';
 
 const ContactState = ({ children }) => {
   const id = useId();
@@ -42,15 +45,44 @@ const ContactState = ({ children }) => {
 
   const [state, dispatch] = useReducer(reducerMethod, initialState);
 
+  // get contacts
+  const getAllContactsHandler = async () => {
+    if (localStorage.token) {
+      setAuthToken(localStorage.token);
+    }
+
+    try {
+      const res = await axios.get('api/contacts');
+      dispatch({
+        type: GET_CONTACTS,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   // add contact
-  const addContactHandler = (data) => {
-    dispatch({
-      type: ADD_CONTACT,
-      payload: {
-        id: id + data.email,
-        ...data,
+  const addContactHandler = async (data) => {
+    if (localStorage.token) {
+      setAuthToken(localStorage.token);
+    }
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
       },
-    });
+    };
+
+    try {
+      const res = await axios.post('api/contacts', data, config);
+      dispatch({
+        type: ADD_CONTACT,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   // current contact
@@ -69,19 +101,44 @@ const ContactState = ({ children }) => {
   };
 
   // update contact
-  const updateContactHandler = (data) => {
-    dispatch({
-      type: UPDATE_CONTACT,
-      payload: data,
-    });
+  const updateContactHandler = async (data) => {
+    if (localStorage.token) {
+      setAuthToken(localStorage.token);
+    }
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    try {
+      const res = await axios.put(`api/contacts/${data.id}`, data, config);
+      console.log(res);
+      dispatch({
+        type: UPDATE_CONTACT,
+        payload: data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   // delete contact
-  const deleteContactHandler = (id) => {
-    dispatch({
-      type: DELETE_CONTACT,
-      payload: id,
-    });
+  const deleteContactHandler = async (id) => {
+    if (localStorage.token) {
+      setAuthToken(localStorage.token);
+    }
+
+    try {
+      await axios.delete(`api/contacts/${id}`);
+      dispatch({
+        type: DELETE_CONTACT,
+        payload: id,
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   // filter contact
@@ -98,6 +155,7 @@ const ContactState = ({ children }) => {
         contacts: state.contacts,
         currentContactData: state.currentContact,
         filteredContacts: state.filteredContacts,
+        getAllContacts: getAllContactsHandler,
         addContact: addContactHandler,
         updateContact: updateContactHandler,
         currentContact: currentContactHandler,

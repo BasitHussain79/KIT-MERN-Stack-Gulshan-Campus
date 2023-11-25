@@ -3,19 +3,25 @@ import {
   CLEAR_CURRENT_CONTACT,
   CURRENT_CONTACT,
   DELETE_CONTACT,
+  GET_CONTACTS,
   SEARCH_CONTACT,
   UPDATE_CONTACT,
 } from '../type';
 
 const reducerMethod = (state, action) => {
   switch (action.type) {
+    case GET_CONTACTS:
+      return {
+        ...state,
+        contacts: action.payload,
+      };
     case ADD_CONTACT:
       return { ...state, contacts: [action.payload, ...state.contacts] };
     case UPDATE_CONTACT:
       return {
         ...state,
         contacts: state.contacts.map((data) => {
-          if (data.id.toString() === action.payload.id.toString()) {
+          if (data._id.toString() === action.payload.id.toString()) {
             return action.payload;
           }
           return data;
@@ -28,7 +34,7 @@ const reducerMethod = (state, action) => {
     case DELETE_CONTACT:
       return {
         ...state,
-        contacts: state.contacts.filter((data) => data.id !== action.payload),
+        contacts: state.contacts.filter((data) => data._id !== action.payload),
       };
     case SEARCH_CONTACT:
       const regex = new RegExp(`${action.payload}`, 'gi');

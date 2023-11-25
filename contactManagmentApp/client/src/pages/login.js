@@ -1,7 +1,12 @@
 import React from 'react';
+import LoginDefault from '../components/features/auth/login';
 
 const Login = () => {
-  return <div>Login</div>;
+  return (
+    <>
+      <LoginDefault />
+    </>
+  );
 };
 
 export default Login;

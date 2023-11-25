@@ -1,3 +1,4 @@
+export const GET_CONTACTS = 'getContact';
 export const ADD_CONTACT = 'addContact';
 export const UPDATE_CONTACT = 'updateContact';
 export const DELETE_CONTACT = 'deleteContact';
@@ -6,3 +7,11 @@ export const CLEAR_CURRENT_CONTACT = 'clearCurrentContact';
 export const SEARCH_CONTACT = 'searchContact';
 export const SET_ALERT = 'setAlert';
 export const CLEART_ALERT = 'clearAlert';
+export const REGISTER_SUCCESS = 'registerSuccess';
+export const REGISTER_FAIL = 'registerFail';
+export const AUTH_SUCCESS = 'authSuccess';
+export const AUTH_FAIL = 'authFail';
+export const CLEAR_ERROR = 'clearError';
+export const LOGIN_SUCCESS = 'loginSuccess';
+export const LOGIN_FAIL = 'loginFail';
+export const LOGOUT = 'logout';

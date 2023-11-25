@@ -1,16 +1,19 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Layout from '../../ui/Layout';
 import AlertContext from '../../../context/alert/alertContext';
 import AuthContext from '../../../context/auth/authContext';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterDefault = () => {
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const { alertHandler } = alertContext;
-  const { registerUserHandler } = authContext;
+  const { error, clearErrorHandler, isAuthenticated, registerUserHandler } =
+    authContext;
 
   const [register, setRegister] = useState({
     name: '',
@@ -20,6 +23,18 @@ const RegisterDefault = () => {
   });
 
   const { name, email, password, confirmPassword } = register;
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/');
+    }
+
+    if (error) {
+      alertHandler(error, 'danger');
+      clearErrorHandler();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [error, isAuthenticated]);
 
   const onChangeHandler = (e) => {
     setRegister((prevState) => ({

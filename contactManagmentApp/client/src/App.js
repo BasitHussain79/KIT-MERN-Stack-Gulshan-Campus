@@ -10,6 +10,7 @@ import AlertState from './context/alert/alertState';
 import Alert from './components/common/Alert';
 import Layout from './components/ui/Layout';
 import AuthState from './context/auth/authState';
+import AppRouter from './router';
 
 const App = () => {
   return (
@@ -18,12 +19,13 @@ const App = () => {
         <AlertState>
           <Router>
             <Alert />
-            <Routes>
+            <AppRouter />
+            {/* <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/about' element={<About />} />
               <Route path='/register' element={<Register />} />
               <Route path='/login' element={<Login />} />
-            </Routes>
+            </Routes> */}
           </Router>
         </AlertState>
       </ContactState>

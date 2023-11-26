@@ -1,31 +1,42 @@
-import React, { useContext } from 'react';
-import defaultRoutes from './routes';
+import React, { useContext, useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './Layout';
-import AuthContext from '../context/auth/authContext';
 import RequireAuth from './RequireAuth';
-import Home from '../pages/home';
+import AuthContext from '../context/auth/authContext';
+import defaultRoutes from './routes';
 
 const AppRouter = () => {
-  const { isAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated, loadUser } = useContext(AuthContext);
 
-  const { publicRoutes, protectedRoutes } = defaultRoutes;
+  useEffect(() => {
+    loadUser();
+  }, []);
 
-  const publicPageRoutes = publicRoutes.map((data) => (
-    <Route key={data.path} path={data.path} element={data.component} />
-  ));
+  const { protectedRoutes, publicRoutes } = defaultRoutes;
 
-  const protectedPageRoutes = protectedRoutes.map((data) => (
-    <Route key={data.path} path={data.path} element={data.component} />
-  ));
+  const publicPageRoutes = publicRoutes.map(({ label, path, component }) => {
+    return <Route key={label} path={`/${path}`} element={component} />;
+  });
+
+  const protectedPageRoutes = protectedRoutes.map(
+    ({ label, path, component }) => {
+      return <Route key={label} path={`/${path}`} element={component} />;
+    }
+  );
+
   return (
     <Routes>
       <Route path='/' element={<Layout />}>
+        {/* public routes */}
         {!isAuthenticated && <>{publicPageRoutes}</>}
+
+        {/* protected routes */}
         <Route element={<RequireAuth />}>{protectedPageRoutes}</Route>
+
+        {/* catch all */}
         <Route
           path='*'
-          element={isAuthenticated ? <Home /> : <Navigate to='/login' />}
+          element={<Navigate to={isAuthenticated ? '/' : '/login'} />}
         />
       </Route>
     </Routes>

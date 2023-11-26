@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/home';
 import About from './pages/about';
@@ -11,6 +11,7 @@ import Alert from './components/common/Alert';
 import Layout from './components/ui/Layout';
 import AuthState from './context/auth/authState';
 import AppRouter from './router';
+import AuthContext from './context/auth/authContext';
 
 const App = () => {
   return (

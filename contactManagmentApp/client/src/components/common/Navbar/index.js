@@ -18,9 +18,7 @@ const TopNavbar = () => {
         </span>
       </Nav>
       <Nav>
-        <a href='#!' onClick={logoutHandler}>
-          Logout
-        </a>
+        <a onClick={logoutHandler}>Logout</a>
       </Nav>
     </>
   );

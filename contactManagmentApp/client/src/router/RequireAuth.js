@@ -6,7 +6,11 @@ const RequireAuth = () => {
   const { isAuthenticated } = useContext(AuthContext);
   const location = useLocation();
 
-  return <>{isAuthenticated ? <Outlet /> : <Navigate to='/login' replace />}</>;
+  if (!isAuthenticated) {
+    return <Navigate to='/login' state={{ from: location }} replace />;
+  }
+
+  return <Outlet />;
 };
 
 export default RequireAuth;
